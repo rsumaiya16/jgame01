@@ -29,7 +29,7 @@ public class game extends PApplet {
 
         // Draw the bird
         fill(255, 0, 0);
-        rect(50, birdY, 30, 30); // The bird as a red square
+        rect(50, birdY, 32, 32); // The bird as a red square
 
         // Prevent the bird from going off-screen
         if (birdY > height - 30) birdY = height - 30;
