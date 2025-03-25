@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class game extends PApplet {
 
@@ -6,13 +7,16 @@ public class game extends PApplet {
     int birdSpeed = 0;
     boolean isFlapping = false;
     int gravity = 1;
+    PImage birdimage;
+
 
     public void settings() {
-        size(400, 600); // Set window size
+        size(600, 600); // Set window size
     }
 
     public void setup() {
-        // Initialize game settings (if any)
+        birdimage=loadImage("bird.png");
+
     }
 
     public void draw() {
@@ -28,8 +32,12 @@ public class game extends PApplet {
         birdY += birdSpeed;   // Update bird position
 
         // Draw the bird
-        fill(255, 0, 0);
-        rect(50, birdY, 32, 32); // The bird as a red square
+        if (birdimage != null) {
+            image(birdimage, 50, birdY);  // Render the bird image at (50, birdY)
+        }
+        else {
+            System.out.println("image cant be laoded");
+        }// The bird as a red square
 
         // Prevent the bird from going off-screen
         if (birdY > height - 30) birdY = height - 30;
